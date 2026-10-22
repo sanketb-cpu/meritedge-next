@@ -20,8 +20,6 @@ export default function Countdown({ flow, data, act, busy, navigate, back, toast
     const r = numRef.current?.getBoundingClientRect();
     if (r) blast(r.left + r.width / 2, r.top + r.height / 2);
     toast(data.toast);
-    const t = setTimeout(() => navigate(data.next), data.autoNextMs);
-    return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done]);
 
@@ -32,13 +30,20 @@ export default function Countdown({ flow, data, act, busy, navigate, back, toast
         <span ref={numRef} key={tick} className="cd pop">{String(n).padStart(2, '0')}</span>{' '}
         <span className="accent">{done ? data.doneWord : data.unit}</span>
       </h1>
-      <div className="compare">
-        <div className="old"><span className="num">{data.compare.manual.value}</span><span><b>{data.compare.manual.title}</b><small>{data.compare.manual.sub}</small></span></div>
-        <div className="new"><span className="num">{data.compare.ai.value}</span><span><b>{data.compare.ai.title}</b><small style={{ color: '#DDD6FE' }}>{data.compare.ai.sub}</small></span></div>
-      </div>
+      {done ? (
+        <div className="assessment-summary" aria-label="Assessment summary">
+          <div><b>{data.summary.questions}</b><span>{data.summary.questionsLabel}</span></div>
+          <div><b>{data.summary.duration}</b><span>{data.summary.durationLabel}</span></div>
+          <div className="wide"><b>{data.summary.coverage}</b><span>{data.summary.coverageLabel}</span></div>
+        </div>
+      ) : (
+        <div className="compare">
+          <div className="old"><span className="num">{data.compare.manual.value}</span><span><b>{data.compare.manual.title}</b><small>{data.compare.manual.sub}</small></span></div>
+          <div className="new"><span className="num">{data.compare.ai.value}</span><span><b>{data.compare.ai.title}</b><small style={{ color: '#DDD6FE' }}>{data.compare.ai.sub}</small></span></div>
+        </div>
+      )}
       <p className="sub" style={{ fontSize: 18 }}>{data.line}</p>
-      <div className="chips">{data.chips.map((c) => <span className="chip" key={c}>{c}</span>)}</div>
-      <ActionButton id="next" busy={busy} wide onClick={() => act('next', 'Loading', 500, () => navigate(data.next))}>{data.cta}</ActionButton>
+      <ActionButton id="next" busy={busy} wide disabled={!done} onClick={() => act('next', 'Loading', 500, () => navigate(data.next))}>{data.cta}</ActionButton>
     </Frame>
   );
 }

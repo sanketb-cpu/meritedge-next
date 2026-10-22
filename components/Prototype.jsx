@@ -1,9 +1,9 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ProgressOverlay } from './ui/kit';
+import { ProgressNav } from './ui/Frame';
 import TopBar from './ui/TopBar';
 import SignupModal from './ui/SignupModal';
-import Welcome from './screens/Welcome';
 import Savings from './screens/Savings';
 import Setup from './screens/Setup';
 import Countdown from './screens/Countdown';
@@ -15,7 +15,7 @@ import TrialEnd from './screens/TrialEnd';
 import Checkout from './screens/Checkout';
 import Success from './screens/Success';
 
-const SCREENS = { welcome: Welcome, savings: Savings, setup: Setup, countdown: Countdown, tryIt: TryIt, result: Result, invite: Invite, dashboard: Dashboard, trialEnd: TrialEnd, checkout: Checkout, success: Success };
+const SCREENS = { savings: Savings, setup: Setup, countdown: Countdown, tryIt: TryIt, result: Result, invite: Invite, dashboard: Dashboard, trialEnd: TrialEnd, checkout: Checkout, success: Success };
 const STORE = 'meritedge_user';
 
 export default function Prototype({ flow }) {
@@ -90,7 +90,7 @@ export default function Prototype({ flow }) {
   };
 
   const Screen = SCREENS[screen];
-  const ctx = { flow, data: flow.screens[screen], navigate, act, longAct, busy, back, close, toast, blastReady: true, user, answer, setAnswer, invited, setInvited,
+  const ctx = { flow, data: flow.screens[screen], navigate, act, longAct, busy, back: screen === flow.start ? null : back, close, toast, blastReady: true, user, answer, setAnswer, invited, setInvited,
     startSignup: (cand) => setSignup(cand) };
 
   const showUser = user && ['dashboard', 'trialEnd', 'checkout', 'success'].includes(screen);
@@ -98,6 +98,7 @@ export default function Prototype({ flow }) {
   return (
     <>
       <div id="topbar" ref={barRef} style={{ width: 0, opacity: 0 }} />
+      <ProgressNav steps={flow.steps} step={flow.screens[screen].step} />
       <TopBar brand={flow.brand} user={showUser ? user : null} onLogo={() => { setHistory([]); setScreen(flow.start); }} onLogout={logout} />
       <div key={screen}>
         <Screen {...ctx} />

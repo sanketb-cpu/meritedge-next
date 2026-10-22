@@ -1,9 +1,9 @@
 'use client';
 
 /** Common screen frame: optional step bar, watermark, back / close buttons */
-export function Frame({ steps, step, onBack, onClose, children }) {
+export function Frame({ steps, step, onBack, onClose, className = '', children }) {
   return (
-    <section className="screen">
+    <section className={'screen' + (typeof step === 'number' ? ' has-progress' : '') + (className ? ' ' + className : '')}>
       {typeof step === 'number' && (
         <>
           <nav className="stepbar" aria-label="Setup progress">
@@ -23,6 +23,24 @@ export function Frame({ steps, step, onBack, onClose, children }) {
       {onClose && <button className="close" onClick={onClose} aria-label="Close">✕</button>}
       <div className="center">{children}</div>
     </section>
+  );
+}
+
+export function ProgressNav({ steps, step }) {
+  if (typeof step !== 'number') return null;
+  return (
+    <div className="progress-nav">
+      <nav className="stepbar" aria-label="Setup progress">
+        {steps.map((s, i) => (
+          <span key={s} style={{ display: 'contents' }}>
+            <span className={i <= step ? 'on' : ''} aria-current={i === step ? 'step' : undefined}>{s}</span>
+            {i < steps.length - 1 && <i className={i < step ? 'on' : ''}>{'\u203a'}</i>}
+          </span>
+        ))}
+        <span className="lang">English {'\u2304'}</span>
+      </nav>
+      <div className="progress"><div style={{ width: (step + 1) * 20 + '%' }} /></div>
+    </div>
   );
 }
 

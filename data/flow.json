@@ -6,17 +6,12 @@
     "watermark": "/fingerprint.svg"
   },
   "steps": ["GET STARTED", "YOUR HIRING", "SET UP", "TRY IT", "PERSONALIZE"],
-  "start": "welcome",
+  "start": "savings",
   "screens": {
-    "welcome": {
-      "title": "Hire on skills,",
-      "accent": "not resumes.",
-      "sub": "Paste a job description. Get a fair, proctored assessment and AI-scored reports for every candidate.",
-      "cta": "Get started",
-      "next": "savings"
-    },
     "savings": {
       "step": 0,
+      "title": "Hire on skills,",
+      "headlineAccent": "not resumes.",
       "lead": "With MeritEdge you could save",
       "unit": "hours",
       "accent": "a month!",
@@ -38,6 +33,14 @@
       "title": "Paste a job description.",
       "accent": "We'll do the rest.",
       "label": "Job description",
+      "domainLabel": "Domain",
+      "domainPlaceholder": "Enter or select a domain",
+      "domainOptions": ["Software & Technology", "Finance & Accounting", "Sales & Marketing", "People & HR", "Operations", "Design & Product"],
+      "roleLabel": "Role",
+      "rolePlaceholder": "Select a role",
+      "defaultDomain": "Software & Technology",
+      "defaultRole": "Full-Stack Developer",
+      "roleOptions": ["Full-Stack Developer", "Frontend Developer", "Backend Developer", "Data Analyst", "Product Manager", "Talent Acquisition Specialist", "Customer Support Specialist"],
       "defaultJD": "Junior Python Full-Stack Developer, Bengaluru. Build Flask APIs, work with microservices and SQL, write clean tested code. 0–2 years.",
       "cta": "Build my assessment",
       "hint": "No question bank: every question is written for this role",
@@ -57,6 +60,14 @@
         "manual": { "value": "3–4 hours", "title": "Invigilators, by hand", "sub": "Writing, checking and timing every question" },
         "ai": { "value": "5 seconds", "title": "MeritEdge, with AI", "sub": "Fresh, role-specific and proctored" }
       },
+      "summary": {
+        "questions": "6",
+        "questionsLabel": "Questions created",
+        "duration": "58 min",
+        "durationLabel": "Assessment time",
+        "coverage": "Python, Flask, SQL, Microservices",
+        "coverageLabel": "Question coverage"
+      },
       "line": "Invigilators take hours to create an assessment. MeritEdge does it in seconds.",
       "chips": ["6 fresh questions", "58 minutes", "Python, Flask, SQL, Microservices", "Standard proctoring"],
       "toast": "Assessment ready: 6 fresh questions",
@@ -75,7 +86,8 @@
         { "id": "C", "code": "sorted(set(ids))", "correct": false }
       ],
       "hint": "Timer 0:42 · webcam off for the demo",
-      "next": "result"
+      "feedbackCta": "Invite candidate",
+      "next": "invite"
     },
     "result": {
       "step": 3,

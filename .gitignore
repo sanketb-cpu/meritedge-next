@@ -4,3 +4,5 @@ out
 .DS_Store
 dev.log
 dev-error.log
+prod.log
+prod-error.log
