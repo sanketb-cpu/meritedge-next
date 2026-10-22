@@ -1,0 +1,214 @@
+{
+  "brand": {
+    "product": "MeritEdge",
+    "company": "Otomeyt AI",
+    "logo": "/otomeyt-ai-logo.svg",
+    "watermark": "/fingerprint.svg"
+  },
+  "steps": ["GET STARTED", "YOUR HIRING", "SET UP", "TRY IT", "PERSONALIZE"],
+  "start": "welcome",
+  "screens": {
+    "welcome": {
+      "title": "Hire on skills,",
+      "accent": "not resumes.",
+      "sub": "Paste a job description. Get a fair, proctored assessment and AI-scored reports for every candidate.",
+      "cta": "Get started",
+      "next": "savings"
+    },
+    "savings": {
+      "step": 0,
+      "lead": "With MeritEdge you could save",
+      "unit": "hours",
+      "accent": "a month!",
+      "sliderLabel": "Candidates screened/month",
+      "sliderSuffix": "candidates",
+      "min": 10,
+      "max": 500,
+      "stepSize": 10,
+      "default": 120,
+      "minutesPerScreen": 30,
+      "automationShare": 0.8,
+      "proofText": "Don't believe us? See a real report",
+      "proofTarget": "tryIt",
+      "cta": "Continue",
+      "next": "setup"
+    },
+    "setup": {
+      "step": 2,
+      "title": "Paste a job description.",
+      "accent": "We'll do the rest.",
+      "label": "Job description",
+      "defaultJD": "Junior Python Full-Stack Developer, Bengaluru. Build Flask APIs, work with microservices and SQL, write clean tested code. 0–2 years.",
+      "cta": "Build my assessment",
+      "hint": "No question bank: every question is written for this role",
+      "buildTitle": "Building",
+      "buildSteps": ["Reading your JD", "Writing fresh questions", "Balancing time and difficulty", "Ready"],
+      "buildMs": 1700,
+      "next": "countdown"
+    },
+    "countdown": {
+      "step": 2,
+      "lead": "Your assessment will be ready in",
+      "doneLead": "Your assessment is ready",
+      "seconds": 5,
+      "unit": "seconds",
+      "doneWord": "done!",
+      "compare": {
+        "manual": { "value": "3–4 hours", "title": "Invigilators, by hand", "sub": "Writing, checking and timing every question" },
+        "ai": { "value": "5 seconds", "title": "MeritEdge, with AI", "sub": "Fresh, role-specific and proctored" }
+      },
+      "line": "Invigilators take hours to create an assessment. MeritEdge does it in seconds.",
+      "chips": ["6 fresh questions", "58 minutes", "Python, Flask, SQL, Microservices", "Standard proctoring"],
+      "toast": "Assessment ready: 6 fresh questions",
+      "autoNextMs": 1500,
+      "cta": "Continue",
+      "next": "tryIt"
+    },
+    "tryIt": {
+      "step": 3,
+      "lead": "Before anyone else, try one question yourself",
+      "question": "“Turn ids = [3, 1, 2, 3, 2] into [3, 1, 2], keeping the order.",
+      "accent": "Which line does it?”",
+      "options": [
+        { "id": "A", "code": "list(set(ids))", "correct": false },
+        { "id": "B", "code": "list(dict.fromkeys(ids))", "correct": true },
+        { "id": "C", "code": "sorted(set(ids))", "correct": false }
+      ],
+      "hint": "Timer 0:42 · webcam off for the demo",
+      "next": "result"
+    },
+    "result": {
+      "step": 3,
+      "right": { "lead": "Nice. You scored", "score": 10, "why": "dict.fromkeys keeps the first time each ID appears, so order survives." },
+      "wrong": { "lead": "Close! You scored", "score": 3, "why": "A set throws away order. list(dict.fromkeys(ids)) keeps the first time each ID appears." },
+      "outOf": 10,
+      "line": "That's how every candidate gets scored: instantly, fairly, with reasons.",
+      "cta": "Continue",
+      "next": "invite"
+    },
+    "invite": {
+      "lead": "Last step. Send it to one real candidate.",
+      "title": "1 link.",
+      "accent": "That's it.",
+      "nameLabel": "Candidate name",
+      "contactLabel": "Email or WhatsApp number",
+      "defaultName": "Ananya R.",
+      "defaultContact": "+91 98xxx xxx12",
+      "cta": "Send invite",
+      "hint": "Goes by WhatsApp and email. Reminders are automatic. Add more candidates anytime.",
+      "next": "dashboard"
+    },
+    "dashboard": {
+      "sidebarLabel": "MERITEDGE",
+      "badge": "Pro Trial",
+      "nav": [
+        { "icon": "doc", "label": "Assessments", "active": true },
+        { "icon": "chat", "label": "AI Interviewer", "tag": "New!" },
+        { "icon": "bulb", "label": "Insights" },
+        { "icon": "book", "label": "Question bank" },
+        { "icon": "users", "label": "Candidates" },
+        { "icon": "chart", "label": "Reports" }
+      ],
+      "trial": { "title": "Trial ends in", "days": 14, "used": 1, "text": "Add billing info to keep Pro for your team. You won't be charged until the trial ends.", "cta": "Add billing info" },
+      "footerLinks": [ { "icon": "plus", "label": "Invite your team" }, { "icon": "gift", "label": "Refer a recruiter" } ],
+      "greetingSmall": "Good afternoon",
+      "greeting": "Hey {name}, your first shortlist is",
+      "greetingAccent": "one link away",
+      "defaultName": "Sanket",
+      "next": {
+        "eyebrow": "NEXT STEP",
+        "title": "Send it to a real candidate",
+        "sub": "Your first AI report usually arrives the same day.",
+        "steps": [ { "label": "Assessment built", "done": true }, { "label": "Tried it yourself", "done": true }, { "label": "Invite a candidate", "doneLabel": "Candidate invited", "done": false } ],
+        "cta": "Invite candidate",
+        "target": "trialEnd"
+      },
+      "stats": [
+        { "icon": "bolt", "value": "1", "label": "assessment live", "color": "#7C3AED" },
+        { "icon": "clock", "value": "5s", "label": "fastest build", "color": "#2563EB" },
+        { "icon": "flame", "value": "1", "label": "day streak", "color": "#EA580C" }
+      ],
+      "todayLabel": "TODAY",
+      "today": [
+        { "time": "4:51pm", "text": "Published \"Junior Python Full-Stack Developer\"", "status": "Live", "color": "#34D399" },
+        { "time": "4:48pm", "text": "You tried 1 question as a candidate: 10/10", "status": "Done", "color": "#A1A1B5" },
+        { "time": "4:45pm", "text": "AI built 6 questions from your JD in 5 seconds", "status": "Done", "color": "#A1A1B5" }
+      ],
+      "dna": { "title": "Your Hiring DNA", "text": "What your best candidates have in common.", "unlock": "Unlocks at 10 candidates", "have": 1, "need": 10 },
+      "invitedBanner": { "title": "Invitation sent successfully", "text": "{candidate} will get the assessment on email and WhatsApp ({contact}). Reminders are automatic." }
+    },
+    "trialEnd": {
+      "lead": "In 12 days you screened",
+      "number": 64,
+      "accent": "candidates",
+      "sub": "and saved about 30 hours of first-round calls. Your Pro trial ends in 2 days.",
+      "chips": ["4 assessments live", "9 shortlisted", "3 proctoring flags caught"],
+      "cta": "Keep Pro for my team",
+      "secondary": "Compare plans",
+      "next": "checkout",
+      "closeToast": "Reminder dismissed. Your trial is still active."
+    },
+    "checkout": {
+      "lead": "Keep Pro for your team",
+      "title": "Pro",
+      "accent": "for your team",
+      "price": "[Price] / month",
+      "priceSub": "Billed yearly, 3 seats, everything you used in the trial",
+      "changePlan": "Change plan",
+      "methods": [
+        { "id": "upi", "name": "UPI", "sub": "Pay from any UPI app" },
+        { "id": "card", "name": "Card", "sub": "Credit or debit" },
+        { "id": "invoice", "name": "Invoice", "sub": "Bank transfer, 15 days" }
+      ],
+      "defaultMethod": "upi",
+      "cta": "Pay and keep Pro",
+      "payTitle": "Processing payment",
+      "paySteps": ["Connecting to UPI", "Waiting for approval", "Payment confirmed"],
+      "payMs": 1900,
+      "hint": "GST invoice to your email. Cancel anytime. Nothing you built is lost.",
+      "next": "success"
+    },
+    "success": {
+      "lead": "Payment done. You're on Pro.",
+      "title": "Welcome",
+      "accent": "to Pro.",
+      "chips": ["Advanced proctoring on", "Benchmarks unlocked", "AI Interviewer unlocked", "3 seats ready"],
+      "cta": "Back to my shortlist",
+      "secondary": "Invite my team",
+      "next": "dashboard"
+    }
+  },
+  "signup": {
+    "steps": [
+      { "title": "Your profile", "sub": "Tell us about you" },
+      { "title": "Verify email", "sub": "Enter the 6-digit code" },
+      { "title": "Invite ready", "sub": "Send to your candidate" }
+    ],
+    "title": "You're almost ready to invite",
+    "sub": "Create your account to unlock 5 free invites and save candidate reports to your workspace.",
+    "perks": [
+      { "title": "5 free invites included", "sub": "Invite up to 5 candidates at no cost." },
+      { "title": "Save candidate reports to your workspace", "sub": "Keep results, notes and reports in one place." }
+    ],
+    "fields": { "name": "Full name", "email": "Work email", "company": "Company" },
+    "placeholders": { "name": "e.g. Priya Sharma", "email": "you@company.com", "company": "Your company" },
+    "errors": {
+      "name": "Please enter your full name",
+      "email": "Enter a valid email address",
+      "personal": "Please use your work email, not a personal one",
+      "company": "Please enter your company name",
+      "otp": "That code doesn't match. Check the code and try again."
+    },
+    "blockedDomains": ["gmail", "yahoo", "hotmail", "outlook", "live", "icloud", "rediffmail"],
+    "cta": "Sign up",
+    "fine": "No credit card. Sign up to unlock 5 free invites and save every candidate report to your account.",
+    "demo": "Demo only: no email is sent and no account is created",
+    "otpTitle": "Check your email",
+    "otpSub": "We sent a 6-digit code to",
+    "otpLength": 6,
+    "resendSeconds": 30,
+    "verify": "Verify and continue",
+    "doneTitle": "You're in, {name}!",
+    "doneSub": "Sending your invite to {candidate}…"
+  }
+}
